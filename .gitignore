@@ -1,0 +1,13 @@
+/.idea
+/cmake-build-debug
+
+# Executables
+*.exe
+*.out
+
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
