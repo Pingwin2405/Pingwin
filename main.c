@@ -29,7 +29,6 @@ int main(void) {
                 printf("Nie badz taki/a zlosliwy/a\n");
                 break;
             case USUN_RODZAJ:
-                // if (odczyt("Ktory rodzaj chcesz usunac? ", &tymcz))
                 pierw = usun_rodzaj(pierw);
                 break;
             case USUN_BAKTERIE:
