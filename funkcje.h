@@ -29,18 +29,18 @@ enum menu {
     USUN_BAKTERIE=7,
     WYJSCIE = 8
 };
-
-ptr_rod dodaj_rod(ptr_rod pierw);//dodaje rodzaj
-ptr_rod usun_rodzaj(ptr_rod pierw);//usuwa rodzaj
+/**ponumerowanie opcji menu*/
+ptr_rod dodaj_rod(ptr_rod pierw);/**dodaje rodzaj*/
+ptr_rod usun_rodzaj(ptr_rod pierw);/**usuwa rodzaj*/
 ptr_rod zwolnij(ptr_rod pierw);
-void wyswietl_rodzaje(ptr_rod pierw);//wyswietla wszystkie rodzaje
+void wyswietl_rodzaje(ptr_rod pierw);/**wyswietla wszystkie rodzaje*/
 unsigned int pusta(ptr_rod pierw);
-void menu(ptr_rod pierw);
-ptr_bak usun_gat(ptr_rod pierw);
-void zapiszRodzaj(ptr_rod rodzaj);
-unsigned int odczyt(char *kom, int *dane);
+void menu(ptr_rod pierw); //*wyswietlanie menu*/
+ptr_bak usun_gat(ptr_rod pierw); //*usuwanie gatunku bakterii*/
+void zapiszRodzaj(ptr_rod rodzaj); /**zapisywanie do pliku*/
+unsigned int odczyt(char *kom, int *dane); 
 void zapiszGatunek(ptr_rod rodzaj, ptr_bak bakteria);
-void wyswietl_bakterie(ptr_rod pierw);
-ptr_bak dodaj_bakterie(ptr_rod gener);
+void wyswietl_bakterie(ptr_rod pierw); /**wyswietla wszystkie gatunki*/
+ptr_bak dodaj_bakterie(ptr_rod gener);/**dodaje gatunek*/
 
 #endif //PRM_PROJECT_TMP_FUNKCJE_H
