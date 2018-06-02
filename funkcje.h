@@ -1,21 +1,21 @@
 #ifndef PRM_PROJECT_TMP_FUNKCJE_H
 #define PRM_PROJECT_TMP_FUNKCJE_H
 
-#define ROZMIAR 21
+#define ROZMIAR 21 /**maksymalna dlugosc nazwy*/
 
 
 
 struct Lista_rodzajow {
-    char rodzaj[ROZMIAR];
-    struct Lista_rodzajow *nast;
-    struct Lista_bakterii *pierwszy_gatunek;
+    char rodzaj[ROZMIAR]; /**nazwa rodzaju*/
+    struct Lista_rodzajow *nast; /**wskaznik na nastepny rodzaj*/
+    struct Lista_bakterii *pierwszy_gatunek; /**wskaznik na liste bakterii*/
 };
 typedef struct Lista_rodzajow *ptr_rod;
 
 /**lista jednokierunkowa, przechowuje wszystkie dodane bakterie, np. Lactococcus lactis */
 struct Lista_bakterii {
-    char bakteria[ROZMIAR];
-    struct Lista_bakterii *B_nast;
+    char bakteria[ROZMIAR]; /**nazwa gatunku*/
+    struct Lista_bakterii *B_nast; /**wskaznik na nastepny agtunek*/
 };
 typedef struct Lista_bakterii *ptr_bak;
 
