@@ -6,7 +6,6 @@ int main(void) {
     ptr_rod pierw = NULL;
     short wybor;
     short dziala = 1;
-    int tymcz;
 
     while (dziala) {
         menu(pierw);
