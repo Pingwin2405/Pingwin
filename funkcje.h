@@ -36,8 +36,10 @@ ptr_rod zwolnij(ptr_rod pierw);
 void wyswietl_rodzaje(ptr_rod pierw);//wyswietla wszystkie rodzaje
 unsigned int pusta(ptr_rod pierw);
 void menu(ptr_rod pierw);
+ptr_bak usun_gat(ptr_rod pierw);
 void zapiszRodzaj(ptr_rod rodzaj);
 unsigned int odczyt(char *kom, int *dane);
+void zapiszGatunek(ptr_rod rodzaj, ptr_bak bakteria);
 void wyswietl_bakterie(ptr_rod pierw);
 ptr_bak dodaj_bakterie(ptr_rod gener);
 

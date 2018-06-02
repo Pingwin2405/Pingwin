@@ -18,13 +18,19 @@ ptr_rod dodaj_rod(ptr_rod pierw) {
 
     nowy->nast = pierw;
     nowy->pierwszy_gatunek = NULL;
-    zapiszRodzaj(nowy);
+    //zapiszRodzaj(nowy);
     return nowy;
 }
 
 void zapiszRodzaj(ptr_rod rodzaj) {
-    FILE *plik = fopen("plik.txt", "w+");
-    fwrite(rodzaj, sizeof(struct Lista_rodzajow), 1, plik);
+    FILE *plik = fopen("plik.txt", "a+");
+    fwrite(rodzaj, sizeof(rodzaj), 1, plik);
+    fclose(plik);
+}
+
+void zapiszGatunek(ptr_rod rodzaj, ptr_bak bakteria) {
+    FILE *plik = fopen("plik.txt", "r+");
+    fwrite(rodzaj, sizeof(struct Lista_bakterii), 1, plik);
     fclose(plik);
 }
 
@@ -109,32 +115,15 @@ void wyswietl_bakterie(ptr_rod pierw) {
             printf("Rodzaj %d: %s\n", ktory_rod++, akt->rodzaj);
             ptr_bak aktualny_gatunek = akt->pierwszy_gatunek;
             printf("Gatunki:\n");
-            while (NULL != aktualny_gatunek){
+            while (NULL != aktualny_gatunek) {
                 printf("%s\n", aktualny_gatunek->bakteria);
-                aktualny_gatunek=aktualny_gatunek->B_nast;
+                aktualny_gatunek = aktualny_gatunek->B_nast;
             }
             akt = akt->nast;
         }
 
     }
 }
-
-/*
-ptr_rod dodaj_rod(ptr_rod pierw) {
-    char nazwa[ROZMIAR];
-    printf("Podaj nazwe nowego rodzaju\n");
-    scanf("%s", &nazwa);
-
-    ptr_rod nowy = (ptr_rod) malloc(sizeof(struct Lista_rodzajow));
-    if (nowy == NULL) {
-        fputs("Nie ma miejsca na nowy rodzaj", stderr);
-        exit(1);
-    }
-
-    strcpy(nowy->rodzaj, nazwa);
-    nowy->nast = pierw;
-    return nowy;
-}*/
 
 ptr_bak dodaj_bakterie(ptr_rod gener) {
     char nazwa_rodzaju[ROZMIAR];
@@ -157,7 +146,7 @@ ptr_bak dodaj_bakterie(ptr_rod gener) {
             strcpy(nowy_gatunek->bakteria, nazwa_bakterii);
             ptr_bak tmp = aktRodzaj->pierwszy_gatunek;
 
-            if(NULL==aktRodzaj->pierwszy_gatunek) {
+            if (NULL == aktRodzaj->pierwszy_gatunek) {
                 aktRodzaj->pierwszy_gatunek = nowy_gatunek;
                 return tmp;
             }
@@ -165,10 +154,9 @@ ptr_bak dodaj_bakterie(ptr_rod gener) {
                 tmp = tmp->B_nast;
             }
 
-            tmp->B_nast=nowy_gatunek;
-
-           // nowy_gatunek->B_nast = aktRodzaj->pierwszy_gatunek;
-          //  aktRodzaj->pierwszy_gatunek = nowy_gatunek;
+            //tutaj mamy w tmp element, którego nastepny jest nulem
+            tmp->B_nast = nowy_gatunek;
+            nowy_gatunek->B_nast=NULL;
 
             return nowy_gatunek;
         }
@@ -178,6 +166,51 @@ ptr_bak dodaj_bakterie(ptr_rod gener) {
     printf("Nie ma takiego rodzaju\n");
     return NULL;
 }
+
+
+ptr_bak usun_gat(ptr_rod pierw) {
+    ptr_rod akt = pierw;
+    ptr_bak obecna, nastepna;
+    char gener[ROZMIAR], gatunek[ROZMIAR];
+    printf("Z ktorego rodzaju chcesz usunac gatunek?\n");
+    scanf("%s", &gener);
+
+    while (strcmp(akt->rodzaj, gener)) {
+        if (NULL == akt) {
+            printf("Nie ma takiego rodzaju\n");
+            return NULL;
+        }
+        akt = akt->nast;
+    }
+
+    obecna = akt->pierwszy_gatunek;
+    nastepna = obecna->B_nast;
+    if (NULL == obecna) {
+        printf("Nie ma zadnej bakterii w tym rodzaju!\n");
+        return NULL;
+    }
+    printf("Ktory gatunek chcesz usunac?\n");
+    scanf("%s", &gatunek);
+    if (!strcmp(gatunek, obecna->bakteria)) {
+        akt->pierwszy_gatunek = obecna->B_nast;
+        free(obecna);
+        return NULL;
+    }
+
+    while (NULL != obecna->B_nast && strcmp(obecna->B_nast->bakteria, gatunek)) {
+        nastepna = nastepna->B_nast;
+        obecna = obecna->B_nast;
+    }
+    if(NULL==obecna->B_nast){
+        printf("Nie ma takiego gatunku\n");
+        return NULL;
+    }
+    obecna->B_nast = nastepna->B_nast;
+    free(nastepna);
+
+    return NULL;
+}
+
 
 
 
