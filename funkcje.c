@@ -3,22 +3,22 @@
 #include <string.h>
 #include "funkcje.h"
 
-//ptr_rod pierw, char gener
+
 ptr_rod dodaj_rod(ptr_rod pierw) {
     char nazwa[ROZMIAR];
     printf("Podaj nazwe nowego rodzaju\n");
     scanf("%s", &nazwa);
 
-    ptr_rod nowy = (ptr_rod) malloc(sizeof(struct Lista_rodzajow));
+    ptr_rod nowy = (ptr_rod) malloc(sizeof(struct Lista_rodzajow)); 
     if (nowy == NULL) {
-        fputs("Nie ma miejsca na nowy rodzaj", stderr);
+        fputs("Nie ma miejsca na nowy rodzaj", stderr); /**nie udalo sie zaalokowac pamieci*/
         exit(1);
     }
     strcpy(nowy->rodzaj, nazwa);
 
     nowy->nast = pierw;
     nowy->pierwszy_gatunek = NULL;
-    //zapiszRodzaj(nowy);
+    zapiszRodzaj(nowy);
     return nowy;
 }
 
@@ -43,7 +43,7 @@ void wyswietl_rodzaje(ptr_rod pierw) {
     } while (akt != NULL);
 }
 
-//ptr_rod usun_rodzaj(ptr_rod pierw){}
+
 
 
 
@@ -54,7 +54,7 @@ ptr_rod usun_rodzaj(ptr_rod pierw) {
     printf("Ktory rodzaj chcesz usunac?\n");
     scanf("%s", &gener);
 
-//    while(akt->rodzaj)
+
 
     do {
         if (!strcmp(akt->rodzaj, gener)) {
