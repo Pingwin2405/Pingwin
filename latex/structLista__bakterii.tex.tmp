@@ -1,0 +1,32 @@
+\hypertarget{structLista__bakterii}{}\section{Lista\+\_\+bakterii Struct Reference}
+\label{structLista__bakterii}\index{Lista\+\_\+bakterii@{Lista\+\_\+bakterii}}
+
+
+{\ttfamily \#include $<$funkcje.\+h$>$}
+
+
+
+Collaboration diagram for Lista\+\_\+bakterii\+:
+% FIG 0
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char {\bfseries bakteria} \mbox{[}R\+O\+Z\+M\+I\+AR\mbox{]}\hypertarget{structLista__bakterii_ab771a92bf13ac5b88b9806a282afd2b2}{}\label{structLista__bakterii_ab771a92bf13ac5b88b9806a282afd2b2}
+
+\item 
+struct \hyperlink{structLista__bakterii}{Lista\+\_\+bakterii} $\ast$ \hyperlink{structLista__bakterii_a0741832ce8764c9e3505f242dd37e282}{B\+\_\+nast}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+lista jednokierunkowa, przechowuje wszystkie dodane bakterie, np. Lactococcus lactis 
+
+\subsection{Member Data Documentation}
+\index{Lista\+\_\+bakterii@{Lista\+\_\+bakterii}!B\+\_\+nast@{B\+\_\+nast}}
+\index{B\+\_\+nast@{B\+\_\+nast}!Lista\+\_\+bakterii@{Lista\+\_\+bakterii}}
+\subsubsection[{\texorpdfstring{B\+\_\+nast}{B_nast}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Lista\+\_\+bakterii}$\ast$ Lista\+\_\+bakterii\+::\+B\+\_\+nast}\hypertarget{structLista__bakterii_a0741832ce8764c9e3505f242dd37e282}{}\label{structLista__bakterii_a0741832ce8764c9e3505f242dd37e282}
+nazwa gatunku 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+funkcje.\+h\end{DoxyCompactItemize}

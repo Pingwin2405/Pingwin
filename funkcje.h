@@ -4,7 +4,7 @@
 #define ROZMIAR 21 /**maksymalna dlugosc nazwy*/
 
 
-
+/**lista przechowujaca wszystkie rodzaje*/
 struct Lista_rodzajow {
     char rodzaj[ROZMIAR]; /**nazwa rodzaju*/
     struct Lista_rodzajow *nast; /**wskaznik na nastepny rodzaj*/
@@ -18,7 +18,7 @@ struct Lista_bakterii {
     struct Lista_bakterii *B_nast; /**wskaznik na nastepny agtunek*/
 };
 typedef struct Lista_bakterii *ptr_bak;
-
+/**ponumerowanie opcji menu*/
 enum menu {
     DODAJ_RODZAJ=1,
     WYSWIETL_RODZAJE=2,
@@ -29,14 +29,14 @@ enum menu {
     USUN_BAKTERIE=7,
     WYJSCIE = 8
 };
-/**ponumerowanie opcji menu*/
+
 ptr_rod dodaj_rod(ptr_rod pierw);/**dodaje rodzaj*/
 ptr_rod usun_rodzaj(ptr_rod pierw);/**usuwa rodzaj*/
 ptr_rod zwolnij(ptr_rod pierw);
 void wyswietl_rodzaje(ptr_rod pierw);/**wyswietla wszystkie rodzaje*/
 unsigned int pusta(ptr_rod pierw);
-void menu(ptr_rod pierw); //*wyswietlanie menu*/
-ptr_bak usun_gat(ptr_rod pierw); //*usuwanie gatunku bakterii*/
+void menu(ptr_rod pierw); /**wyswietlanie menu*/
+ptr_bak usun_gat(ptr_rod pierw); /**usuwanie gatunku bakterii*/
 void zapiszRodzaj(ptr_rod rodzaj); /**zapisywanie do pliku*/
 unsigned int odczyt(char *kom, int *dane); 
 void zapiszGatunek(ptr_rod rodzaj, ptr_bak bakteria);

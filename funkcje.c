@@ -5,7 +5,7 @@
 
 
 ptr_rod dodaj_rod(ptr_rod pierw) {
-    char nazwa[ROZMIAR];
+    char nazwa[ROZMIAR]; /**nazwa dodawanego rodzaju*/
     printf("Podaj nazwe nowego rodzaju\n");
     scanf("%s", &nazwa);
 
@@ -17,8 +17,8 @@ ptr_rod dodaj_rod(ptr_rod pierw) {
     strcpy(nowy->rodzaj, nazwa);
 
     nowy->nast = pierw;
-    nowy->pierwszy_gatunek = NULL;
-    zapiszRodzaj(nowy);
+    nowy->pierwszy_gatunek = NULL; /**dodano do listy*/
+    zapiszRodzaj(nowy); /**zapisywanie do pliku*/
     return nowy;
 }
 
@@ -85,7 +85,7 @@ unsigned int pusta(ptr_rod pierw) {
     if (pierw == NULL) return 1;
     else return 0;
 }
-
+/**wyswietlenie wszystkich opcji,lub tylko niektorych, zaleznie od stanu zapelnienia list*/
 void menu(ptr_rod pierw) {
     printf("Wybierz opcje:\n 1-dodaj rodzaj bakterii\n 2-wyswietl wszystkie rodzaje bakterii\n 3-zaraz bakteriami nielubianego kolege\n ");
     if (!pusta(pierw)) {
@@ -126,7 +126,7 @@ void wyswietl_bakterie(ptr_rod pierw) {
 }
 
 ptr_bak dodaj_bakterie(ptr_rod gener) {
-    char nazwa_rodzaju[ROZMIAR];
+    char nazwa_rodzaju[ROZMIAR]; /**nazwa dodawanego nowego gatunku,podawana przez uzytkownika*/
     ptr_rod aktRodzaj = gener;
     printf("Podaj nazwe rodzaju, do ktorego nalezy nowa bakteria\n");
     scanf("%s", &nazwa_rodzaju);
